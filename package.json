@@ -12,7 +12,7 @@
     "db-down": "db-migrate reset",
     "build": "npx tsc&& cp -rf package.json dist/package.json && cp -R .elasticbeanstalk dist/.elasticbeanstalk &&  cd dist && zip -r Archive.zip . && cd ..",
     "test": "npm run build&&set ENV=test&&db-migrate --env test reset&&db-migrate --env test up&&jasmine&&db-migrate --env test reset",
-    "start": "npm run build&&node dist/server.js",
+    "start": "node ./dist/server.js",
     "deploy": "npm run build &&cd dist &&eb list &&eb use Awsstorebackend-env &&eb deploy"
   },
   "author": "Udacity",
